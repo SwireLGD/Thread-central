@@ -10,10 +10,10 @@ export const fetchThreads = createAsyncThunk<Thread[]>(
     }
 );
 
-export const createThread = createAsyncThunk<void, ThreadMutation>(
+export const createThread = createAsyncThunk<Thread, ThreadMutation>(
     'threads/create',
     async (threadMutation) => {
-        const response = await axiosApi.post('/threads', threadMutation);
+        const response = await axiosApi.post<Thread>('/threads', threadMutation);
         return response.data;
     }
 );

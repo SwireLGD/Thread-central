@@ -32,8 +32,9 @@ export const threadsSlice = createSlice({
         builder
             .addCase(createThread.pending, (state) => {
                 state.createLoading = true;
-            }).addCase(createThread.fulfilled, (state) => {
+            }).addCase(createThread.fulfilled, (state, action) => {
                 state.createLoading = false;
+                state.items.unshift(action.payload);
             }).addCase(createThread.rejected, (state) => {
                 state.createLoading = false;
             });

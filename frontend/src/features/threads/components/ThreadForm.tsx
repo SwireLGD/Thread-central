@@ -16,6 +16,7 @@ const ThreadForm: React.FC<Props> = ({onSubmit}) => {
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(state);
+    setState({ author: '', message: '', image: '' });
   };
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
