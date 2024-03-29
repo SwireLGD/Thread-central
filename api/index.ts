@@ -8,8 +8,8 @@ const port = 8000;
 
 app.use(express.json());
 
-app.use('/', threadsRouter);
 app.use(cors());
+app.use('/', threadsRouter);
 
 const run = async () => {
     await fileDb.init();

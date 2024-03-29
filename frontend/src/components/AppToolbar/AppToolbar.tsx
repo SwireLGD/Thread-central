@@ -3,7 +3,7 @@ import { Link as NavLink } from "react-router-dom";
 
 const LogoLink = styled(NavLink)({
     color: 'inherit', 
-    extDecoration: 'none',
+    textDecoration: 'none',
     '&:hover': {
         color: 'inherit'
     }
@@ -14,7 +14,7 @@ const AppToolbar = () => {
         <AppBar position="sticky" sx={{mb: 2}}>
             <Toolbar>
                 <Typography variant="h6" component="div">
-                    <LogoLink to="/">CompStore</LogoLink>
+                    <LogoLink to="/">Thread Central</LogoLink>
                 </Typography>
             </Toolbar>
         </AppBar>

@@ -3,5 +3,16 @@
     "id": "0a92e204-4fd1-432d-a112-c9b8dac850fb",
     "author": "Anonymous",
     "message": "test message"
+  },
+  {
+    "id": "f4b3f168-c037-4bea-b2d4-5255fe43d49b",
+    "author": "Swire",
+    "message": "Welp, looks like everythings working just fine :o",
+    "image": "https://i.kym-cdn.com/photos/images/newsfeed/001/741/230/b06.jpg"
+  },
+  {
+    "id": "f46200af-b94e-40f6-a40c-9db5bfb8e382",
+    "author": "Anonymous",
+    "message": "another test"
   }
 ]
