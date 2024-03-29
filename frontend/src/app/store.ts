@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { threadsReducer } from '../features/threads/threadsSlice';
 
 export const store = configureStore({
   reducer: {
-    
+    threads: threadsReducer,
   }
 });
 
