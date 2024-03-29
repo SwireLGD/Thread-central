@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Grid, TextField } from '@mui/material';
+import { Button, CircularProgress, Grid, TextField } from '@mui/material';
 import { ThreadMutation } from '../../../types';
 
 interface Props {
   onSubmit: (mutation: ThreadMutation) => void;
+  isLoading: boolean;
 }
 
-const ThreadForm: React.FC<Props> = ({onSubmit}) => {
+const ThreadForm: React.FC<Props> = ({onSubmit, isLoading }) => {
   const [state, setState] = useState<ThreadMutation>({
     author: '',
     message: '',
@@ -15,6 +16,10 @@ const ThreadForm: React.FC<Props> = ({onSubmit}) => {
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!state.message.trim()) {
+      alert('Message cannot be empty.');
+      return;
+    }
     onSubmit(state);
     setState({ author: '', message: '', image: '' });
   };
@@ -59,7 +64,9 @@ const ThreadForm: React.FC<Props> = ({onSubmit}) => {
           />
         </Grid>
         <Grid item xs>
-          <Button type="submit" color="primary" variant="contained">Create</Button>
+        <Button type="submit" color="primary" variant="contained" disabled={isLoading}>
+            {isLoading ? <CircularProgress size={24} /> : 'Create'}
+          </Button>
         </Grid>
       </Grid>
     </form>

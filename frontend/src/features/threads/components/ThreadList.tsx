@@ -1,16 +1,25 @@
 import { useEffect } from 'react';
-import { Card, CardContent, Typography, CardMedia, Grid } from '@mui/material';
+import { Card, CardContent, Typography, CardMedia, Grid, CircularProgress } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { selectThreads } from '../threadsSlice';
+import { selectThreads, selectThreadsFetching } from '../threadsSlice';
 import { fetchThreads } from '../threadsThunks';
 
 const ThreadsList = () => {
     const dispatch = useAppDispatch();
     const threads = useAppSelector(selectThreads);
+    const isLoading = useAppSelector(selectThreadsFetching);
 
     useEffect(() => {
         dispatch(fetchThreads());
     }, [dispatch]);
+
+    if (isLoading) {
+        return (
+            <Grid container justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}>
+                <CircularProgress />
+            </Grid>
+        );
+    }
 
     return (
         <Grid container spacing={2} sx={{ mt: 2 }}>
