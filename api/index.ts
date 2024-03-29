@@ -1,12 +1,13 @@
 import express from "express";
 import threadsRouter from "./routers/threads";
+import fileDb from "./fileDb";
 
 const app = express();
 const port = 8000;
 
 app.use(express.json());
 
-app.use('/threads', threadsRouter);
+app.use('/', threadsRouter);
 
 const run = async () => {
     await fileDb.init();
